@@ -1,0 +1,42 @@
+{
+  "name": "api-explorer",
+  "version": "0.0.1",
+  "description": "explores your api to check if there are any unexpected errors",
+  "main": "lib/index.js",
+  "repository": "git@github.com:kanekotic/api-explorer.git",
+  "author": "kanekotic <me@kanekotic.com>",
+  "license": "MIT",
+  "bin": {
+    "convert-guid": "bin/api-explorer.js"
+  },
+  "keywords": [
+    "command line",
+    "tool",
+    "api"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:dev": "jest --watchAll",
+    "test:cov": "jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "push": "yarn test && git push",
+    "deploy:major": "yarn version --major",
+    "deploy:minor": "yarn version --minor",
+    "deploy:patch": "yarn version --patch",
+    "deploy:push": "git push && git push --tags",
+    "preversion": "yarn test"
+  },
+  "jest": {
+    "automock": false,
+    "testMatch": [
+      "**/test/**/*-test.js"
+    ]
+  },
+  "devDependencies": {
+    "coffee": "5.4.0",
+    "jest": "26.6.3"
+  },
+  "dependencies": {
+    "buffer": "6.0.3",
+    "commander": "7.0.0"
+  }
+}
